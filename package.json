@@ -1,0 +1,19 @@
+{
+  "name": "code-academy-personal-budget-part-two",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lordTocho/code-academy-personal-budget-part-two.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lordTocho/code-academy-personal-budget-part-two/issues"
+  },
+  "homepage": "https://github.com/lordTocho/code-academy-personal-budget-part-two#readme"
+}
