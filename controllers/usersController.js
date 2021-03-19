@@ -6,10 +6,20 @@ module.exports = {
     list( req, res ) {
         return User
             .findAll({
-                model: User,
-                as: 'Users'
+                attributes : ['userId', 'firstName', 'lastName', "createdAt", "updatedAt"]
             })
             .then( (user) => res.status( 200 ).send(user) )
             .catch((error) => { res.status(400).send(error); });
     },
+
+    addUser( req, res ) {
+        return User
+          .create({
+            firstName: req.body.firstName,
+            lastName: req.body.lastName
+
+          }, { attributes : ['userId', 'firstName', 'lastName', "createdAt", "updatedAt"] })
+          .then((user) => res.status(201).send(user))
+          .catch((error) => res.status(400).send(error));
+    }
 }
