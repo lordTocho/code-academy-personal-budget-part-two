@@ -1,6 +1,7 @@
 'use strict';
 const {
-  Model
+  Model,
+  Sequelize
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class BudgetEnvelope extends Model {
@@ -14,7 +15,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   BudgetEnvelope.init({
-    BudgetEnvelopeId: DataTypes.INTEGER,
+    BBudgetEnvelopeId: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: Sequelize.INTEGER
+    },
     EnvelopeDescription: DataTypes.STRING,
     Budget: DataTypes.FLOAT,
     userId: DataTypes.INTEGER
