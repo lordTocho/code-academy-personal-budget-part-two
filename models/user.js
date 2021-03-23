@@ -1,7 +1,12 @@
 'use strict';
+
+
 const {
   Model,Sequelize
 } = require('sequelize');
+
+const DataTypes = require('sequelize/lib/data-types');
+
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -13,7 +18,9 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       User.hasMany( models.BudgetEnvelope, {
         foreignKey: 'userId'
-      } )
+      } );
+      models.BudgetEnvelope.belongsTo( User )
+
     }
   };
   User.init({

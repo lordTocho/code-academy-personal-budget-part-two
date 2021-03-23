@@ -10,7 +10,7 @@ module.exports = {
     list( req, res ) {
         // list out all of the envelopes that each user has in the system
         return BudgetEnvelope
-            .findAll({ include: User, as: 'Users' })
+            .findAll({ include: User, required: true })
             .then( ( envelope ) => res.status( 200 ).send( envelope ) )
             .catch((error) => res.status(400).send(error));
     }

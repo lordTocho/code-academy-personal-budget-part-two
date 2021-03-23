@@ -3,6 +3,7 @@ const {
   Model,
   Sequelize
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class BudgetEnvelope extends Model {
     /**
