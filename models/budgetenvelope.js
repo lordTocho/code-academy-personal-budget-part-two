@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   BudgetEnvelope.init({
-    BBudgetEnvelopeId: {
+    BudgetEnvelopeId: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
