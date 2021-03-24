@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany( models.BudgetEnvelope, {
         foreignKey: 'userId'
       } );
-      models.BudgetEnvelope.belongsTo( User )
+      models.BudgetEnvelope.belongsTo( User, {foreignKey: 'userId'})
 
     }
   };
