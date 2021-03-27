@@ -5,6 +5,7 @@ var budgetEnvelopeController = require('../controllers/budgetEnvelopeController'
 
 budgetEnvelopeRouter.get('/', budgetEnvelopeController.list );
 budgetEnvelopeRouter.get('/:envelopeId', budgetEnvelopeController.getEnvelopeById );
+budgetEnvelopeRouter.get('/total', budgetEnvelopeController.totalBudgetEnvelope )
 
 budgetEnvelopeRouter.post('/add', budgetEnvelopeController.addEnvelopesWithUsers );
 

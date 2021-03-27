@@ -1,5 +1,6 @@
 const BudgetEnvelope = require('../models/').BudgetEnvelope
 const User = require('../models/').User
+const sequelize = require('sequelize');
 
 // contains all of the logic that recieves the API calls and runs commands against the database
 
@@ -110,5 +111,30 @@ module.exports = {
                         .catch((error) => res.status(400).send(error));
                 } )
                 .catch((error) => res.status(400).send(error));
+    },
+
+    totalBudgetEnvelope( req, res ) {
+            return BudgetEnvelope
+                .findAll({
+                    attributes: [
+                        'userId',
+                        [sequelize.fn('SUM', sequelize.col('Budget')), 'totalBudget']
+                    ],
+                    group: ['userId']
+                })
+                .then( ( envelope ) => {
+
+                    if ( !envelope ) {
+                        return res.status(404).send({
+                          message: `User Id: ${req.params.userId} was not found. Unable to bring up budget total`,
+                        });
+                    }
+                    return envelope
+                        .then(() => res.status(200).send( { budgetTotal: envelope,
+                                                            response: "Successfully sent total budgets." } ) )
+                        .catch((error) => res.status(400).send(error));
+                } )
+                .catch((error) => res.status(400).send(error));
+
     }
 }
